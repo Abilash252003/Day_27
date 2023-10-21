@@ -1,0 +1,18 @@
+///100 days of RTL///
+
+///Abilash P///
+
+///2:4 decoder in data flow modelling///
+
+module dec_2_to_4 (A, en, Y);
+
+input [1:0]A;
+input  en;
+output [3:0]Y;
+
+assign Y[0] = ~en & ~A[1] & ~A[0];
+assign Y[1] = ~en & ~A[1] &  A[0];
+assign Y[2] = ~en &  A[1] & ~A[0];
+assign Y[3] = ~en &  A[1] &  A[0];
+
+endmodule
