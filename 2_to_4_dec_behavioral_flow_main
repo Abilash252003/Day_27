@@ -1,0 +1,29 @@
+///100 days of RTL///
+
+///Abilash P///
+
+///2:4 decoder in behavioral modelling///
+
+module dec_2_to_4 (A, en, Y);
+
+input [1:0]A;
+input  en;
+output reg [3:0]Y;
+
+always @(*)
+begin
+  if(en==0)
+  begin
+    case({A[1],A[0]})
+    2'b00   : Y = {3'b0, 1'b1};
+    2'b01   : Y = {2'b0, 1'b1, 1'b0};
+    2'b10   : Y = {1'b0, 1'b1, 2'b0};
+    2'b11   : Y = {1'b1, 3'b0};
+    default : Y = 4'b0;
+    endcase
+  end
+  else
+      Y = 4'bx;
+end
+
+endmodule
