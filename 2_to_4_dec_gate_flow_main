@@ -1,0 +1,22 @@
+///100 days of RTL///
+
+///Abilash P///
+
+///2:4 decoder in gate flow modelling///
+
+module dec_2_to_4 (A, en, Y);
+
+input [1:0]A;
+input  en;
+output [3:0]Y;
+
+wire p1;
+
+not n1 (p1, en);
+
+and a1 (Y[0], p1, ~A[1], ~A[0]);
+and a2 (Y[1], p1, ~A[1],  A[0]);
+and a3 (Y[2], p1,  A[1], ~A[0]);
+and a4 (Y[3], p1,  A[1],  A[0]);
+
+endmodule
